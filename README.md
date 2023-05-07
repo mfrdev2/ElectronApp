@@ -25,3 +25,56 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+
+# ElectronCMD
+
+## Install electron
+
+```
+npm install --save-dev electron@latest
+```
+
+## Install asar
+
+```
+npm install asar --save
+```
+
+
+## Install ec-package
+
+```
+npm install -g electron-packager
+```
+
+## Electron commands for _package.json_
+
+### Run/Start electron in debug mode
+
+```
+"start:electron": "ng build --base-href ./ && electron ."
+```
+
+### Create electron package
+
+```
+"winpackage": "electron-packager . ElectronApp --platform=win32 --arch=x64 --overwrite --app-version=1.0.0 --build-version=1.0.0 --win32metadata.ProductName=ElectronApp --FileDescription=ElectronApp --appname=electronapp --win32metadata.CompanyName=ng --app-copyright=ng --icon=eagle.ico"
+```
+
+### archive electron created package using _asar_
+
+```
+"archiveapp": "asar pack ElectronApp-win32-x64/resources/app ElectronApp-win32-x64/resources/app.asar"
+```
+
+References:
+
+- https://github.com/electron/electron-packager
+
+- https://www.electronjs.org/docs/latest/tutorial/quick-start
+
+- https://icon-icons.com/icon/eagle/98734

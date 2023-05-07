@@ -4,7 +4,11 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --base-href ./ && electron .",
+    "start": "ng serve",
+    "start:electron": "ng build --base-href ./ && electron .",
+    "winpackage": "electron-packager . electron-app --platform=win32 --arch=x64 --overwrite --app-version=1.1.0 --build-version=1.2.0 --win32metadata.ProductName=electron-app --FileDescription=electron-app --appname=electron-app --win32metadata.CompanyName=ng --app-copyright=ng --icon=eagle.ico",
+    "archiveapp": "asar pack electron-app-win32-x64/resources/app electron-app-win32-x64/resources/app.asar",
+    "packit": "ng build --base-href ./ && npm run winpackage && npm  run archiveapp",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

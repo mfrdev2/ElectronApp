@@ -50,7 +50,8 @@ export class ElectronService {
     }
   }
 
+ 
   get isElectron(): boolean {
-    return !!(window && window.process && window.process.type);
+     return !!(window && window.process && window.process.type);
   }
 }
