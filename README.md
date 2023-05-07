@@ -71,6 +71,12 @@ npm install -g electron-packager
 "archiveapp": "asar pack ElectronApp-win32-x64/resources/app ElectronApp-win32-x64/resources/app.asar"
 ```
 
+### create package kit
+
+```
+"packit": "ng build --base-href ./ && npm run winpackage && npm  run archiveapp"
+```
+
 References:
 
 - https://github.com/electron/electron-packager
