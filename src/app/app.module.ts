@@ -4,8 +4,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { ElectronService } from './providers/electron.service';
 import { RouterModule } from '@angular/router';
+import { ElectronService } from './services/electron.service';
 
 
 

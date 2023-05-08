@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from './providers/electron.service';
+import { ElectronService } from './services/electron.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,20 @@ import { ElectronService } from './providers/electron.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  // https://dzone.com/articles/tutorial-use-angular-and-electron-to-create-a-desk
   title = 'electron-app';
-  constructor(private es: ElectronService){}
+  demoText = "";
+
+
+
+  constructor(private _es:ElectronService){
+
+  }
 
   ngOnInit(): void {
-    console.log('HomeComponent INIT',this.es.isElectron);
+      console.log(this._es.getDemoData)
+      this._es.sendToMain('I send some data to main process');
   }
+
+
 }
