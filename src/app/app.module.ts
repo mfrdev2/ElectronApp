@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ElectronService } from './services/electron.service';
 import { HeaderComponent } from './header/header.component';
+import { BannerComponent } from './banner/banner.component';
+import { InputLayoutComponent } from './input-layout/input-layout.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    BannerComponent,
+    InputLayoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
