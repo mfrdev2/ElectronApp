@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
       console.log(this._es.getDemoData)
-      this._es.sendToMain('I send some data to main process');
+     // this._es.sendToMain('I send some data to main process');
   }
 
 

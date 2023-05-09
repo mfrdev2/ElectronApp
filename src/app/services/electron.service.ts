@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const electron = (<any>window).require('electron');
+//const electron = (<any>window).require('electron');
 
 
 
@@ -23,7 +23,7 @@ export class ElectronService {
   }
 
   sendToMain(path: any) {
-    electron.ipcRenderer.send('sendToMain', path);
+    //electron.ipcRenderer.send('sendToMain', path);
   }
 
 }
