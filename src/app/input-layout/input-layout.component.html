@@ -9,62 +9,61 @@
       নামজারি শুনানি দেওয়ার জন্য নামজারি আবেদন নম্বর টাইপ করুন
     </p>
 
-    <input readonly id="input" class=" my-2 border-black border-2 w-[65%]  h-[4rem] font-bold text-6xl py-2 px-4"
-      type="text" id="fname" name="fname" />
+    <input readonly id="input" type="text" class="screen-input  my-2 border-black border-2 w-[65%]  h-[4rem] font-bold text-6xl py-2 px-4"/>
 
-    <div class="grid grid-cols-3 gap-2 py-2 w-[65%]  ">
+    <div class="btn-digit grid grid-cols-3 gap-2 py-2 w-[65%]  ">
 
-      <button onclick="keyboardType(event)"
+      <button type="button" value="1"
         class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         1
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button" value="2"
         class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         2
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button" value="3"
         class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         3
       </button>
 
-      <button onclick="keyboardType(event)"
+      <button type="button" value="4"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         4
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button"  value="5"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         5
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button" value="6"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         6
       </button>
 
 
-      <button onclick="keyboardType(event)"
+      <button type="button"  value="7"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         7
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button" value="8"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         8
       </button>
-      <button onclick="keyboardType(event)"
+      <button type="button"  value="9"
         class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
         9
       </button>
 
-      <button onclick="keyboardType(event)" aria-label="left-arrow" id="clear"
-        class="flex items-center justify-center bg-black text-white text-center py-6 text-6xl font-bold border-4 rounded-md border-gray-600">
-        <img src="./assets//images/left-arrow.png" id="clear" alt="" class="w-[20%]" />
+      <button type="button" 
+        class="clear flex items-center justify-center bg-black text-white text-center py-6 text-6xl font-bold border-4 rounded-md border-gray-600">
+        <img src="./assets//images/left-arrow.png" class="clear w-[20%]"/>
       </button>
 
-      <button onclick="keyboardType(event)"
+      <button  type="button" value="0"
         class="bg-black text-white text-center py-6 text-6xl font-bold border-4 rounded-md border-gray-600">
         0
       </button>
 
-      <button onclick="keyboardType(event)"
+      <button  type="button" 
         class="flex items-center justify-center bg-black text-white text-center py-6 text-7xl font-bold border-4 rounded-md border-gray-600">
         +
       </button>
@@ -72,7 +71,7 @@
     </div>
 
     <div class=" w-[65%] text-white grid grid-cols-1 text-3xl font-bold pt-2 ">
-      <button onclick="clickOnNext()" class=" rounded-md  py-8 flex items-center justify-center bg-green-600">
+      <button (click)="clickOnNext($event)" class=" rounded-md  py-8 flex items-center justify-center bg-green-600">
         পরবর্তী <img src="./assets/images/left.png" alt="" class="px-4 h-[2rem]" />
       </button>
     </div>

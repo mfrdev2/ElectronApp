@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElectronService } from './services/electron.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class AppComponent implements OnInit{
 
 
 
-  constructor(private _es:ElectronService){
+  constructor(
+    private _es:ElectronService,
+    private router: Router
+   
+    ){
 
   }
 

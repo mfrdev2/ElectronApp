@@ -1,0 +1,91 @@
+<div class="inset-0 mt-56 z-[99] h-full flex flex-col ">
+    <div class="py-4 flex flex-col justify-center items-center">
+
+        <div class="text-center " id="myDIV">
+            <p class="text-2xl text-black font-extrabold "> নামজারি আবেদন পূরণকৃত মোবাইলে (<span
+                    id="userMobileNo"></span>) একটি <span class="text-red-600">
+                    OTP</span>প্রেরণ করা হয়েছে
+            </p>
+
+            <p class="text-green-500 my-2 text-2xl ">OTP নাম্বারটি টাইপ করুন</p>
+        </div>
+
+        <div class=" text-center hidden " id="errorDiv">
+            <p class="text-2xl text-red-600 font-extrabold ">আপনার OTP নম্বরটি সঠিক নয়</p>
+            <p class="text-2xl text-green-600 font-extrabold "> অনুগ্রহ করে সঠিক OTP নম্বরটি টাইপ করুন </p>
+        </div>
+
+        <input readonly id="input" class="screen-input my-2 border-black border-2 w-[65%]  h-[4rem] font-bold text-6xl py-0 px-4"
+            type="text" id="fname" name="fname" />
+
+        <div class="btn-digit grid grid-cols-3 gap-2 py-2 w-[65%]  ">
+
+            <button type="button" value="1"
+                class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                1
+            </button>
+            <button type="button" value="2"
+                class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                2
+            </button>
+            <button type="button" value="3"
+                class="bg-black text-white text-center py-8 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                3
+            </button>
+
+            <button type="button" value="4"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                4
+            </button>
+            <button type="button" value="5"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                5
+            </button>
+            <button type="button" value="6"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                6
+            </button>
+
+
+            <button type="button" value="7"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                7
+            </button>
+            <button type="button" value="8"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                8
+            </button>
+            <button type="button" value="9"
+                class="bg-black text-white text-center py-6 px-4 text-6xl font-bold border-4 rounded-md border-gray-600">
+                9
+            </button>
+
+            <button type="button"
+                class="clear flex items-center justify-center bg-black text-white text-center py-6 text-6xl font-bold border-4 rounded-md border-gray-600">
+                <img src="./assets//images/left-arrow.png" class="clear w-[20%]" />
+            </button>
+
+            <button type="button" value="0"
+                class="bg-black text-white text-center py-6 text-6xl font-bold border-4 rounded-md border-gray-600">
+                0
+            </button>
+
+            <button type="button"
+                class="flex items-center justify-center bg-black text-white text-center py-6 text-7xl font-bold border-4 rounded-md border-gray-600">
+                +
+            </button>
+
+        </div>
+
+        <div class=" w-[65%] text-white grid grid-cols-2 gap-4  text-4xl font-bold  ">
+
+            <button (click)="goPreviousPage()" class="rounded-md  bg-green-600 flex items-center justify-center  py-8 ">
+                <img src="./assets/images/right.png" alt="" class="px-4 h-[2rem]">পূর্ববর্তী</button>
+
+            <button (click)="clickOnNext()"
+                class=" rounded-md  bg-green-600 flex items-center justify-center  py-8 ">পরবর্তী <img
+                    src="./assets/images/left.png" alt="" class="px-4 h-[2rem]"></button>
+        </div>
+
+    </div>
+</div>

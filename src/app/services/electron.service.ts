@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-//const electron = (<any>window).require('electron');
+const electron = (<any>window).require('electron');
 
 
 
@@ -8,10 +8,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ElectronService {
+  [x: string]: any;
 
 
   constructor() {
-    // this.ipcRender = electron.ipcRenderer;
+   //  this.ipcRender = electron.ipcRenderer;
   }
 
 
@@ -24,6 +25,11 @@ export class ElectronService {
 
   sendToMain(path: any) {
     //electron.ipcRenderer.send('sendToMain', path);
+  }
+
+  sendToMainForPrintData(content:any){
+    console.log('data ===> ',content)
+    electron.ipcRenderer.send('processContent', content);
   }
 
 }

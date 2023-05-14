@@ -1,0 +1,3 @@
+export const APPLICATION_ID_KEY = 'APPLICATION_ID'
+export const OTP_KEY = 'OTP_NUMBER'
+export const MOBILE_NUMBER_KEY = 'MOBILE_NUMBER'

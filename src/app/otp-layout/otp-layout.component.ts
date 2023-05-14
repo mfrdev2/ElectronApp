@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { NetworkService } from '../services/network.service';
+import {Location} from '@angular/common';
 import { Router } from '@angular/router';
-
+import { ElectronService } from '../services/electron.service';
 
 @Component({
-  selector: 'app-input-layout',
-  templateUrl: './input-layout.component.html',
-  styleUrls: ['./input-layout.component.css']
+  selector: 'app-otp-layout',
+  templateUrl: './otp-layout.component.html',
+  styleUrls: ['./otp-layout.component.css']
 })
-export class InputLayoutComponent implements OnInit {
+export class OtpLayoutComponent implements OnInit {
 
   inputBean: any
 
   constructor(
-    private router: Router
-    ,private _network:NetworkService) {
+    private router: Router,
+    private _location: Location,
+    private _network:NetworkService,
+    private _electron:ElectronService
+    ) {
 
   }
 
 
   ngOnInit() {
     this.inputBean = {
-      applicationNumber: '',
+      otpData: '',
       firstOperand: null,
       waitingForSecondOperand: false,
       operator: null
@@ -37,7 +41,7 @@ export class InputLayoutComponent implements OnInit {
 
   updateDisplay() {
     const display: any = document.querySelector('.screen-input');
-    display.value = this.inputBean.applicationNumber;
+    display.value = this.inputBean.otpData;
   }
 
 
@@ -65,44 +69,51 @@ export class InputLayoutComponent implements OnInit {
 
 
   inputDigit(digit:any) {
-    const { applicationNumber, waitingForSecondOperand } = this.inputBean;
+    const { otpData, waitingForSecondOperand } = this.inputBean;
 
-    this.inputBean.applicationNumber =
-    applicationNumber === '' ? digit : applicationNumber + digit;
+    this.inputBean.otpData =
+    otpData === '' ? digit : otpData + digit;
   
   }
 
    clearLastDigit() {
-   const { applicationNumber, waitingForSecondOperand } = this.inputBean;
-   if(!applicationNumber){
+   const { otpData, waitingForSecondOperand } = this.inputBean;
+   if(!otpData){
        return;
    }
-   this.inputBean.applicationNumber = applicationNumber.slice(0, -1);;
+   this.inputBean.otpData = otpData.slice(0, -1);;
    this.inputBean.firstOperand = null;
    this.inputBean.waitingForSecondOperand = false;
    this.inputBean.operator = null;
   }
 
 
-  clickOnNext(ev:any){
-   var applicationId = this.inputBean.applicationNumber;
-    console.log("click===> next",applicationId)
-    if(!applicationId){
+  clickOnNext(){
+   var otp = this.inputBean.otpData;
+    console.log("click===> next",otp)
+    if(!otp){
       console.log('application number not found')
       return;
     }
 
-   var otpData = this._network.sendOTPRequest(applicationId)
+   var data = this._network.getDataFromLocal();
 
+   if(data.otp != otp){
+     console.log('otp mismatch')
+     return;
+   }
+
+   const printData = {
+    applicationId:21545415,
+    phoneNo:'01775123605',
+    applicationDate:'14-05-2023'
+   }
    
-
-   console.log('otp===> ',otpData)
-
-   this._network.seveDataOnLocal(otpData)
-
-   this.router.navigate(['/otp']);
+    this._electron.sendToMainForPrintData(printData);
 
   }
 
-
+  goPreviousPage(){
+    this._location.back();
+  }
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+  <!-- <script src="./assets/css/tailwindcss_v_3.3.0"></script> -->
+
+  <style>
+    .flex {
+      display: flex;
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+
+    .pl-4 {
+      padding-left: 1rem;
+    }
+
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .font-extrabold {
+      font-weight: 800;
+    }
+
+    .text-base {
+      font-size: 1rem;
+      /* 16px */
+      line-height: 1.5rem;
+      /* 24px */
+    }
+
+    .text-xl {
+      font-size: 1.25rem;
+      /* 20px */
+      line-height: 1.75rem;
+      /* 28px */
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .items-baseline {
+      align-items: baseline;
+    }
+
+    .font-semibold {
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flex mb-8">
+    <img src="./src/assets/images/logo_land_ministry.png" alt="logo_land_ministry" />
+    <img src="./src/assets/images/logo_land_service.png" alt="logo_land_service" class="pl-4" />
+  </div>
+
+
+  <div class="grid px-4 py-2" style="grid-template-columns: 19% 33%;width: 908px;">
+
+    <!-- <span class="text-xl">স্লিপ নম্বর</span>
+
+    <div class="flex items-baseline">
+      <span>:&nbsp;&nbsp;</span>
+      <span id="slip" class="text-xl">H003</span>
+    </div> -->
+
+    <span class="text-xl">নামজারি আবেদন নম্বর</span>
+
+    <div class="flex items-baseline">
+      <span>:&nbsp;&nbsp;</span>
+      <span id="applicationId" class="text-xl">5555555</span>
+    </div>
+
+    <span class="text-xl">মোবাইল নম্বর</span>
+
+    <div class="flex items-baseline">
+      <span>:&nbsp;&nbsp;</span>
+      <span id="phoneNo" class="text-xl">01707571184</span>
+    </div>
+
+    <span class="text-xl">তারিখ</span>
+
+    <div class="flex items-baseline">
+      <span>:&nbsp;&nbsp;</span>
+      <span id="applicationDate" class="text-xl">2023-04-10</span>
+    </div>
+
+  </div>
+
+  <!-- <span class="text-xl font-semibold px-4 py-2">ভূমি অফিসে আপনাকে স্বাগতম</span> -->
+
+  <script src="./renderer_worker.js"></script>
+</body>
+
+</html>
