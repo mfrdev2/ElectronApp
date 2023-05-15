@@ -105,11 +105,11 @@ export class OtpLayoutComponent implements OnInit {
 
    const printData = {
     applicationId:21545415,
-    phoneNo:'01775123605',
+    phoneNo:'01775236027',
     applicationDate:'14-05-2023'
    }
    
-    this._electron.sendToMainForPrintData(printData);
+    this._electron.printToken(printData);
 
   }
 

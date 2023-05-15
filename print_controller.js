@@ -1,13 +1,6 @@
 
-
-
-window.qproAPI2.handleCounter((event, value) => {
-    console.log('FRabbi ===> ',value)
+window.printApi.handlePrintData((event, value) => {
     setDataInView(value)
-    // const oldValue = Number(counter.innerText)
-    // const newValue = oldValue + value
-    // counter.innerText = newValue
-    // event.sender.send('counter-value', newValue)
 })
 
 setDataInView = async (content) => {
@@ -26,6 +19,10 @@ setDataInView = async (content) => {
     document.getElementById("applicationDate").innerHTML =
         content.applicationDate ?? "";
 
+        //print request
+        setTimeout(function () {
+            window.printApi.printContent('welcome')
+        }, 300);
    
     await sleep(1500);
 };
