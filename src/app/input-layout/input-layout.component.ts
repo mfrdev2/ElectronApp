@@ -12,6 +12,11 @@ export class InputLayoutComponent implements OnInit {
 
   inputBean: any
 
+  isError:Boolean = false;
+  errorText:any 
+
+ 
+
   constructor(
     private router: Router
     ,private _network:NetworkService) {
@@ -21,7 +26,7 @@ export class InputLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.inputBean = {
-      applicationNumber: '',
+      applicationId: '',
       firstOperand: null,
       waitingForSecondOperand: false,
       operator: null
@@ -32,12 +37,13 @@ export class InputLayoutComponent implements OnInit {
     this.handleNumberClick()
 
 
+
   }
 
 
   updateDisplay() {
     const display: any = document.querySelector('.screen-input');
-    display.value = this.inputBean.applicationNumber;
+    display.value = this.inputBean.applicationId;
   }
 
 
@@ -65,10 +71,10 @@ export class InputLayoutComponent implements OnInit {
 
 
   inputDigit(digit:any) {
-    const { applicationNumber, waitingForSecondOperand } = this.inputBean;
+    const { applicationId, waitingForSecondOperand } = this.inputBean;
 
-    this.inputBean.applicationNumber =
-    applicationNumber === '' ? digit : applicationNumber + digit;
+    this.inputBean.applicationId =
+    applicationId === '' ? digit : applicationId + digit;
   
   }
 
@@ -85,8 +91,10 @@ export class InputLayoutComponent implements OnInit {
 
 
   clickOnNext(ev:any){
-   var applicationId = this.inputBean.applicationNumber;
+    this.errorMsg()
+   var applicationId = this.inputBean.applicationId;
     console.log("click===> next",applicationId)
+
     if(!applicationId){
       console.log('application number not found')
       return;
@@ -94,14 +102,18 @@ export class InputLayoutComponent implements OnInit {
 
    var otpData = this._network.sendOTPRequest(applicationId)
 
-   
 
    console.log('otp===> ',otpData)
 
    this._network.seveDataOnLocal(otpData)
 
-   this.router.navigate(['/otp']);
+   //this.router.navigate(['/otp']);
 
+  }
+
+   errorMsg() {
+    this.isError = true;
+    this.errorText = `এই আবেদনটির (${this.inputBean.applicationId}) শুনানি দিন এখনো ধার্য করা হয় নাই।`;
   }
 
 

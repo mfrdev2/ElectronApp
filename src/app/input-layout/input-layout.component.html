@@ -1,11 +1,11 @@
 <div class="inset-0 mt-60 h-full flex flex-col ">
   <div class="py-4 flex flex-col justify-center items-center">
 
-    <p class="hidden" id="headerErrorTitle">
-      আপনার নামজারি আবেদন নম্বরটি সঠিক নয়
+    <p  *ngIf="isError" class="text-3xl text-red-500 font-bold py-2"  id="headerErrorTitle">
+            {{errorText}}
     </p>
 
-    <p class="text-3xl text-green-500 font-extrabold py-2" id="headerTitle">
+    <p *ngIf="!isError" class="text-3xl text-green-500 font-extrabold py-2" id="headerTitle">
       নামজারি শুনানি দেওয়ার জন্য নামজারি আবেদন নম্বর টাইপ করুন
     </p>
 
