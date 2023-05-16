@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 //import * as electron from 'electron';
 // import { ipcRenderer, webFrame } from 'electron';
 // import * as childProcess from 'child_process';
@@ -17,7 +18,7 @@ export class ElectronService {
   // webFrame!: typeof webFrame;
   // childProcess!: typeof childProcess;
   // fs!: typeof fs;
-
+  config = new BehaviorSubject<any>([]);
   electron;
 
 
@@ -44,6 +45,12 @@ export class ElectronService {
       //     console.log(`stdout:\n${stdout}`);
       //   });
 
+      this.electron.ipcRenderer.on('congig-data', (event:any, configData:any) => {
+           console.log('angular - electron-service - event ==>',event)
+           console.log('angular -electron-service - configData ==>',configData)
+              this.config.next(configData);
+            });
+
     } else {
       console.log('APP RUN BY ANGULAR')
     }
@@ -69,6 +76,15 @@ export class ElectronService {
       return;
     }
     this.electron.ipcRenderer.send('process-print', printData);
+  }
+
+
+  fetchConfigFile() {
+    if(!this.electron){
+      console.log('Fail to send request to electron main-process as this app not run by electron')  
+      return;
+    }
+    this.electron.ipcRenderer.send('ready-config-file');
   }
 
 }

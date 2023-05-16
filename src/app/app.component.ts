@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   // https://dzone.com/articles/tutorial-use-angular-and-electron-to-create-a-desk
   title = 'electron-app';
   demoText = "";
@@ -16,16 +16,25 @@ export class AppComponent implements OnInit{
 
 
   constructor(
-    private _es:ElectronService,
+    private _es: ElectronService,
     private router: Router
-   
-    ){
+
+  ) {
 
   }
 
   ngOnInit(): void {
-      console.log(this._es.getDemoData)
-     // this._es.sendToMain('I send some data to main process');
+    console.log(this._es.getDemoData)
+    // this._es.sendToMain('I send some data to main process');
+    this._es.fetchConfigFile();
+
+
+    this._es.config.subscribe((configData) => {
+
+      console.log('FRabbi === App Conponent ==> ', configData)
+    });
+
+
   }
 
 
